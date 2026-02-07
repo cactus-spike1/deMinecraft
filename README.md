@@ -36,7 +36,18 @@ java -jar SpecialSource.jar map -i client.jar -o client_deobf.jar -m client.txt
 Теперь извлечём `.java` файлы из `.jar` с помощью **CFR**:
 
 ```sh
-java -jar cfr.jar client_deobf.jar client/
+java -jar cfr.jar client_deobf.jar --outputdir ./cfr-out1 \
+                                               --decodelambdas true \
+                                               --decodestringswitch true \
+                                               --decodeenumswitch true \
+                                               --decodeenumswitch true \
+                                               --removeboilerplate true \
+                                               --recover true \
+                                               --showversion false \
+                                               --silent true \
+                                               --comments false \
+                                               --tryresources true \
+                                               --eclipse true  --hideutf false
 ```
 
 После выполнения команды в папке `client/` появятся `.java` файлы с читаемым кодом.
